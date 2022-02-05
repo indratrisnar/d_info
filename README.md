@@ -1,39 +1,55 @@
-<!-- 
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# D'Info
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages). 
+Flutter package for response info message. It's like bootstrap view but simple.
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages). 
--->
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
-
-## Features
-
-TODO: List what your package can do. Maybe include images, gifs, or videos.
-
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+## Screenshot
+<img src="https://github.com/indratrisnar/d_info/raw/master/pic/d_info1.png" alt="d_info1" height="540">
+<img src="https://github.com/indratrisnar/d_info/raw/master/pic/d_info2.png" alt="d_info2" height="540">
+<img src="https://github.com/indratrisnar/d_info/raw/master/pic/d_info3.png" alt="d_info3" height="540">
+<img src="https://github.com/indratrisnar/d_info/raw/master/pic/d_info4.png" alt="d_info4" height="540">
+<img src="https://github.com/indratrisnar/d_info/raw/master/pic/d_info5.png" alt="d_info5" height="540">
+<img src="https://github.com/indratrisnar/d_info/raw/master/pic/d_info6.png" alt="d_info6" height="540">
+<img src="https://github.com/indratrisnar/d_info/raw/master/pic/d_info7.png" alt="d_info7" height="540">
+<img src="https://github.com/indratrisnar/d_info/raw/master/pic/d_info8.png" alt="d_info8" height="540">
+<img src="https://github.com/indratrisnar/d_info/raw/master/pic/d_info9.png" alt="d_info9" height="540">
+<img src="https://github.com/indratrisnar/d_info/raw/master/pic/d_info10.png" alt="d_info10" height="540">
+<img src="https://github.com/indratrisnar/d_info/raw/master/pic/d_info11.png" alt="d_info11" height="540">
+<img src="https://github.com/indratrisnar/d_info/raw/master/pic/d_info12.png" alt="d_info12" height="540">
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
-
+1. Response Dialog
 ```dart
-const like = 'sample';
+DInfo.dialogSuccess('Payment Success');
+
+DInfo.closeDialog(durationBeforeClose: const Duration(seconds: 1));
 ```
 
-## Additional information
+2. Toast
+```dart
+DInfo.toastError('Pick Color has Failed');
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+DInfo.closeToast();
+```
+
+3. Snackbar
+```dart
+DInfo.snackBarError('Input Failed');
+
+DInfo.closeSnackBarOrNotif();
+```
+
+4. Notif
+```dart
+DInfo.notifError('Upload', "Fail upload image");
+```
+
+# Tutorial :
+Soon
+
+Support me for more feature & packages
+[Donate](https://www.paypal.com/paypalme/indratrisnar)
+
+Check my app : [Visit](https://indratrisnar.github.io/projects.html)
+
+Check My Tutorial & Course : [Watch](https://www.youtube.com/channel/UC0d_xINEvCtlDCpWfBpnYpA)
