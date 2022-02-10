@@ -45,7 +45,7 @@ DInfo.notifError('Upload', "Fail upload image");
 ```
 
 # Tutorial :
-Soon
+Youtube: [Watch](https://www.youtube.com/watch?v=Mmidjtrp9DY)
 
 Support me for more feature & packages
 [Donate](https://www.paypal.com/paypalme/indratrisnar)
