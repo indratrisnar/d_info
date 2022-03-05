@@ -4,8 +4,7 @@ Flutter package for response info message. It's like bootstrap view but simple.
 
 ## Usage
 
-1. Response Dialog
-<br>
+<h5>1. Response Dialog</h5>
 
 <img src="https://github.com/indratrisnar/d_info/raw/master/pic/d_info1.png" alt="d_info1" width="250">
 <img src="https://github.com/indratrisnar/d_info/raw/master/pic/d_info2.png" alt="d_info2" width="250">
