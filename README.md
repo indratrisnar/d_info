@@ -15,7 +15,7 @@ DInfo.dialogSuccess('Payment Success');
 
 DInfo.closeDialog(durationBeforeClose: const Duration(seconds: 1));
 ```
-
+<br>
 2. Toast
 
 <img src="https://github.com/indratrisnar/d_info/raw/master/pic/d_info4.png" alt="d_info4" width="250">
@@ -27,7 +27,7 @@ DInfo.toastError('Pick Color has Failed');
 
 DInfo.closeToast();
 ```
-
+<br>
 3. Snackbar
 
 <img src="https://github.com/indratrisnar/d_info/raw/master/pic/d_info7.png" alt="d_info7" width="250">
@@ -39,7 +39,7 @@ DInfo.snackBarError('Input Failed');
 
 DInfo.closeSnackBarOrNotif();
 ```
-
+<br>
 4. Notif
 
 <img src="https://github.com/indratrisnar/d_info/raw/master/pic/d_info10.png" alt="d_info10" width="250">
