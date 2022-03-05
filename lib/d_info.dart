@@ -1,4 +1,5 @@
 library d_info;
+
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart' as _toast;
 import 'package:get/get.dart' as _getx;
@@ -10,7 +11,7 @@ class DInfo {
     String textNo = 'No',
     String textYes = 'Yes',
   ]) async {
-    _getx.Get.dialog(
+    return await _getx.Get.dialog(
       AlertDialog(
         title: Text(title),
         content: Text(content),
@@ -27,7 +28,6 @@ class DInfo {
       ),
       barrierDismissible: false,
     );
-    return false;
   }
 
   static void dialogError(String message) {

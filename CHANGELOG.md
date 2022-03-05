@@ -1,3 +1,8 @@
+## 0.0.3
+
+test Fixing dialog confirmation
+issue: cannot get the result await
+
 ## 0.0.2
 
 Add Tutorial
