@@ -30,6 +30,35 @@ class DInfo {
     );
   }
 
+  static Future<bool> dialogConfirmationWith(
+    BuildContext context,
+    String title,
+    String content, {
+    String textNo = 'No',
+    String textYes = 'Yes',
+  }) async {
+    return await showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) {
+        return AlertDialog(
+          title: Text(title),
+          content: Text(content),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context, false),
+              child: Text(textNo),
+            ),
+            TextButton(
+              onPressed: () => Navigator.pop(context, true),
+              child: Text(textYes),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   static void dialogError(String message) {
     _getx.Get.dialog(
       SimpleDialog(

@@ -1,3 +1,8 @@
+## 0.0.5
+
+dialogConfirmationWith
+required context because use basic framework code
+
 ## 0.0.3
 
 test Fixing dialog confirmation
