@@ -1,3 +1,7 @@
+## 0.0.6
+
+edit view readme
+
 ## 0.0.5
 
 dialogConfirmationWith
