@@ -5,32 +5,10 @@ import 'package:fluttertoast/fluttertoast.dart' as _toast;
 import 'package:get/get.dart' as _getx;
 
 class DInfo {
+  /// dialog for chek confirmation
+  /// return true if yes
+  /// retun false if no
   static Future<bool> dialogConfirmation(
-    String title,
-    String content, [
-    String textNo = 'No',
-    String textYes = 'Yes',
-  ]) async {
-    return await _getx.Get.dialog(
-      AlertDialog(
-        title: Text(title),
-        content: Text(content),
-        actions: [
-          TextButton(
-            onPressed: () => _getx.Get.back(result: false),
-            child: Text(textNo),
-          ),
-          TextButton(
-            onPressed: () => _getx.Get.back(result: true),
-            child: Text(textYes),
-          ),
-        ],
-      ),
-      barrierDismissible: false,
-    );
-  }
-
-  static Future<bool> dialogConfirmationWith(
     BuildContext context,
     String title,
     String content, {
@@ -59,6 +37,8 @@ class DInfo {
     );
   }
 
+  /// dialog for response error
+  /// not automatically closed, so you have to use DInfo.close() after this
   static void dialogError(String message) {
     _getx.Get.dialog(
       SimpleDialog(
@@ -81,6 +61,8 @@ class DInfo {
     );
   }
 
+  /// dialog for response success
+  /// not automatically closed, so you have to use DInfo.close() after this
   static void dialogSuccess(String message) {
     _getx.Get.dialog(
       SimpleDialog(
@@ -103,6 +85,8 @@ class DInfo {
     );
   }
 
+  /// dialog for response custom icon
+  /// not automatically closed, so you have to use DInfo.close() after this
   static void dialogNetral(String message, {IconData? icon}) {
     _getx.Get.dialog(
       SimpleDialog(
@@ -126,6 +110,7 @@ class DInfo {
     );
   }
 
+  /// close dialog and callback
   static void closeDialog(
       {Duration? durationBeforeClose, Function? actionAfterClose}) {
     Future.delayed(
@@ -137,6 +122,7 @@ class DInfo {
     );
   }
 
+  /// fast response for error with automatically close
   static void toastError(String message, {bool isLong = false}) {
     _toast.Fluttertoast.showToast(
       msg: message,
@@ -150,6 +136,7 @@ class DInfo {
     );
   }
 
+  /// fast response for success with automatically close
   static void toastSuccess(String message, {bool isLong = false}) {
     _toast.Fluttertoast.showToast(
       msg: message,
@@ -163,6 +150,7 @@ class DInfo {
     );
   }
 
+  /// fast response for netral with automatically close
   static void toastNetral(String message, {bool isLong = false}) {
     _toast.Fluttertoast.showToast(
       msg: message,
@@ -176,10 +164,12 @@ class DInfo {
     );
   }
 
+  /// close current active toast
   static void closeToast() {
     _toast.Fluttertoast.cancel();
   }
 
+  /// response below of ui for error with automatically close
   static void snackBarError(String message) {
     _getx.Get.rawSnackbar(
       messageText: Text(
@@ -191,6 +181,7 @@ class DInfo {
     );
   }
 
+  /// response below of ui for success with automatically close
   static void snackBarSuccess(String message) {
     _getx.Get.rawSnackbar(
       messageText: Text(
@@ -202,6 +193,7 @@ class DInfo {
     );
   }
 
+  /// response below of ui for netral with automatically close
   static void snackBarNetral(String message) {
     _getx.Get.rawSnackbar(
       messageText: Text(
@@ -213,10 +205,13 @@ class DInfo {
     );
   }
 
+  /// you can use this to close current snackbar or notif
   static void closeSnackBarOrNotif() {
     _getx.Get.closeAllSnackbars();
   }
 
+  /// response like notif for error
+  /// automatically close
   static void notifError(
     String title,
     String message, {
@@ -235,6 +230,8 @@ class DInfo {
     );
   }
 
+  /// response like notif for success
+  /// automatically close
   static void notifSuccess(
     String title,
     String message, {
@@ -253,6 +250,8 @@ class DInfo {
     );
   }
 
+  /// response like notif for netral
+  /// automatically close
   static void notifNetral(
     String title,
     String message, {

@@ -47,6 +47,7 @@ class Home extends StatelessWidget {
           ElevatedButton(
             onPressed: () async {
               bool isYes = await DInfo.dialogConfirmation(
+                context,
                 'Logout?',
                 'You sure logout from this account?',
               );

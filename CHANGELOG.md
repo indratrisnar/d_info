@@ -1,3 +1,8 @@
+## 0.0.7
+
+update dialogConfirmation and delete old version
+add description
+
 ## 0.0.6
 
 edit view readme
