@@ -1,3 +1,11 @@
+## 0.0.9
+
+update readme for dialog confirmation
+
+## 0.0.8
+
+fixing bug when the user forces close the confirmation dialog
+
 ## 0.0.7
 
 update dialogConfirmation and delete old version

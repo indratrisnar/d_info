@@ -10,6 +10,15 @@ Flutter package for response info message. It's like bootstrap view but simple.
 <img src="https://github.com/indratrisnar/d_info/raw/master/pic/d_info2.png" alt="d_info2" width="250">
 <img src="https://github.com/indratrisnar/d_info/raw/master/pic/d_info3.png" alt="d_info3" width="250">
 
+Confirm
+```dart
+bool? yes = await DInfo.dialogConfirmation('Title','Content');
+if (yes ?? false){
+    // execute yes
+}
+```
+
+
 ```dart
 DInfo.dialogSuccess('Payment Success');
 

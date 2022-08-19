@@ -8,7 +8,7 @@ class DInfo {
   /// dialog for chek confirmation
   /// return true if yes
   /// retun false if no
-  static Future<bool> dialogConfirmation(
+  static Future<bool?> dialogConfirmation(
     BuildContext context,
     String title,
     String content, {
