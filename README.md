@@ -60,6 +60,23 @@ DInfo.closeSnackBarOrNotif();
 DInfo.notifError('Upload', "Fail upload image");
 ```
 
+<hr>
+<h2>Without GetX (GetMaterialApp)</h2>
+
+<h3>SnackBar</h3>
+```
+DInfo.snackBar(context, 'Upload Success');
+DInfo.snackBar(context, 'Upload Success', color: Colors.green);
+DInfo.snackBar(context, 'Upload Success', duration: const Duration(seconds: 2));
+```
+
+<h3>Dialog</h3>
+```dart
+bool? yes = await DInfo.dialogConfirmation('Title','Content');
+if (yes ?? false){
+    // execute yes
+}
+```
 
 # Tutorial :
 Youtube: [Watch](https://www.youtube.com/watch?v=Mmidjtrp9DY)

@@ -1,3 +1,7 @@
+## 0.1.0
+
+add default snackbar come from base Flutter without GetMaterialApp (GetX)
+
 ## 0.0.9
 
 update readme for dialog confirmation

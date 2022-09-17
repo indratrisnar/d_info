@@ -5,6 +5,23 @@ import 'package:fluttertoast/fluttertoast.dart' as _toast;
 import 'package:get/get.dart' as _getx;
 
 class DInfo {
+  // Simple & default snackbar
+  // Note: Without GetX (GetMaterialApp)
+  static void snackBar(
+    BuildContext context,
+    String message, {
+    Color? color,
+    Duration? duration,
+  }) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(message),
+        backgroundColor: color,
+        duration: duration ?? const Duration(seconds: 4),
+      ),
+    );
+  }
+
   /// dialog for chek confirmation
   /// return true if yes
   /// retun false if no
