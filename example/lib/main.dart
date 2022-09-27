@@ -31,18 +31,11 @@ class Home extends StatelessWidget {
           const ListTile(title: Text('Dialog')),
           ElevatedButton(
             onPressed: () {
-              DInfo.dialogSuccess('Payment Success');
-              DInfo.closeDialog(
+              DInfo.dialogSuccess(context, 'Payment Success');
+              DInfo.closeDialog(context,
                   durationBeforeClose: const Duration(seconds: 1));
             },
             child: const Text('Success'),
-          ),
-          ElevatedButton(
-            onPressed: () {
-              DInfo.dialogError('Payment Failed');
-              DInfo.closeDialog();
-            },
-            child: const Text('Error'),
           ),
           ElevatedButton(
             onPressed: () async {
@@ -52,9 +45,9 @@ class Home extends StatelessWidget {
                 'You sure logout from this account?',
               );
               if (isYes ?? false) {
-                print('user click yes');
+                // print('user click yes');
               } else {
-                print('user click no');
+                // print('user click no');
               }
             },
             child: const Text('Confirmation'),
@@ -86,32 +79,6 @@ class Home extends StatelessWidget {
             child: const Text('Close Toast'),
           ),
           const Divider(),
-          const ListTile(title: Text('SnackBar')),
-          ElevatedButton(
-            onPressed: () {
-              DInfo.snackBarError('Input Failed');
-            },
-            child: const Text('Error'),
-          ),
-          ElevatedButton(
-            onPressed: () {
-              DInfo.snackBarSuccess('Login Success');
-            },
-            child: const Text('Success'),
-          ),
-          ElevatedButton(
-            onPressed: () {
-              DInfo.snackBarNetral('Add to Cart');
-            },
-            child: const Text('Netral'),
-          ),
-          ElevatedButton(
-            onPressed: () {
-              DInfo.closeSnackBarOrNotif();
-            },
-            child: const Text('Close SnackBar'),
-          ),
-          const Divider(),
           const ListTile(title: Text('Notif')),
           ElevatedButton(
             onPressed: () {
@@ -133,7 +100,7 @@ class Home extends StatelessWidget {
           ),
           ElevatedButton(
             onPressed: () {
-              DInfo.closeSnackBarOrNotif();
+              DInfo.closeNotif();
             },
             child: const Text('Close Notif'),
           ),

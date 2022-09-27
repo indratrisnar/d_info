@@ -7,20 +7,7 @@ import 'package:get/get.dart' as _getx;
 class DInfo {
   // Simple & default snackbar
   // Note: Without GetX (GetMaterialApp)
-  static void snackBar(
-    BuildContext context,
-    String message, {
-    Color? color,
-    Duration? duration,
-  }) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(message),
-        backgroundColor: color,
-        duration: duration ?? const Duration(seconds: 4),
-      ),
-    );
-  }
+  // ---------------------------------------------------------------------------
 
   /// dialog for chek confirmation
   /// return true if yes
@@ -54,86 +41,94 @@ class DInfo {
     );
   }
 
-  /// dialog for response error
-  /// not automatically closed, so you have to use DInfo.close() after this
-  static void dialogError(String message) {
-    _getx.Get.dialog(
-      SimpleDialog(
-        children: [
-          Center(
-            child: Icon(
-              Icons.error_outline_outlined,
-              color: Colors.red[700],
-              size: 40,
-            ),
-          ),
-          const SizedBox(height: 16),
-          Text(
-            message,
-            textAlign: TextAlign.center,
-          ),
-        ],
-      ),
+  static void dialogError(BuildContext context, String message) {
+    showDialog(
+      context: context,
       barrierDismissible: false,
+      builder: (ctx) {
+        return SimpleDialog(
+          children: [
+            Center(
+              child: Icon(
+                Icons.error_outline_outlined,
+                color: Colors.red[700],
+                size: 40,
+              ),
+            ),
+            const SizedBox(height: 16),
+            Text(
+              message,
+              textAlign: TextAlign.center,
+            ),
+          ],
+        );
+      },
     );
   }
 
   /// dialog for response success
   /// not automatically closed, so you have to use DInfo.close() after this
-  static void dialogSuccess(String message) {
-    _getx.Get.dialog(
-      SimpleDialog(
-        children: [
-          Center(
-            child: Icon(
-              Icons.check_circle_outline_outlined,
-              color: Colors.green[700],
-              size: 40,
-            ),
-          ),
-          const SizedBox(height: 16),
-          Text(
-            message,
-            textAlign: TextAlign.center,
-          ),
-        ],
-      ),
+  static void dialogSuccess(BuildContext context, String message) {
+    showDialog(
+      context: context,
       barrierDismissible: false,
+      builder: (ctx) {
+        return SimpleDialog(
+          children: [
+            Center(
+              child: Icon(
+                Icons.check_circle_outline_outlined,
+                color: Colors.green[700],
+                size: 40,
+              ),
+            ),
+            const SizedBox(height: 16),
+            Text(
+              message,
+              textAlign: TextAlign.center,
+            ),
+          ],
+        );
+      },
     );
   }
 
   /// dialog for response custom icon
   /// not automatically closed, so you have to use DInfo.close() after this
-  static void dialogNetral(String message, {IconData? icon}) {
-    _getx.Get.dialog(
-      SimpleDialog(
-        children: [
-          if (icon != null)
-            Center(
-              child: Icon(
-                icon,
-                color: Colors.blue[700],
-                size: 40,
-              ),
-            ),
-          if (icon != null) const SizedBox(height: 16),
-          Text(
-            message,
-            textAlign: TextAlign.center,
-          ),
-        ],
-      ),
+  static void dialogNetral(BuildContext context, String message,
+      {IconData? icon}) {
+    showDialog(
+      context: context,
       barrierDismissible: false,
+      builder: (ctx) {
+        return SimpleDialog(
+          children: [
+            if (icon != null)
+              Center(
+                child: Icon(
+                  icon,
+                  color: Colors.blue[700],
+                  size: 40,
+                ),
+              ),
+            if (icon != null) const SizedBox(height: 16),
+            Text(
+              message,
+              textAlign: TextAlign.center,
+            ),
+          ],
+        );
+      },
     );
   }
 
   /// close dialog and callback
-  static void closeDialog(
+  static void closeDialog(BuildContext context,
       {Duration? durationBeforeClose, Function? actionAfterClose}) {
     Future.delayed(
       durationBeforeClose ?? const Duration(milliseconds: 2500),
       () {
-        _getx.Get.back();
+        Navigator.pop(context);
         if (actionAfterClose != null) actionAfterClose.call();
       },
     );
@@ -187,43 +182,72 @@ class DInfo {
   }
 
   /// response below of ui for error with automatically close
-  static void snackBarError(String message) {
-    _getx.Get.rawSnackbar(
-      messageText: Text(
-        message,
-        style: TextStyle(color: Colors.red[900]),
+  static void snackBarError(BuildContext context, String message) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          message,
+          style: TextStyle(color: Colors.red[900]),
+        ),
+        behavior: SnackBarBehavior.floating,
+        backgroundColor: Colors.red[100],
       ),
-      snackStyle: _getx.SnackStyle.FLOATING,
-      backgroundColor: Colors.red[100]!,
     );
   }
 
   /// response below of ui for success with automatically close
-  static void snackBarSuccess(String message) {
-    _getx.Get.rawSnackbar(
-      messageText: Text(
-        message,
-        style: TextStyle(color: Colors.green[900]),
+  static void snackBarSuccess(BuildContext context, String message) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          message,
+          style: TextStyle(color: Colors.green[900]),
+        ),
+        behavior: SnackBarBehavior.floating,
+        backgroundColor: Colors.green[100],
       ),
-      snackStyle: _getx.SnackStyle.FLOATING,
-      backgroundColor: Colors.green[100]!,
     );
   }
 
   /// response below of ui for netral with automatically close
-  static void snackBarNetral(String message) {
-    _getx.Get.rawSnackbar(
-      messageText: Text(
-        message,
-        style: TextStyle(color: Colors.blue[900]),
+  static void snackBarNetral(BuildContext context, String message) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          message,
+          style: TextStyle(color: Colors.blue[900]),
+        ),
+        behavior: SnackBarBehavior.floating,
+        backgroundColor: Colors.blue[100]!,
       ),
-      snackStyle: _getx.SnackStyle.FLOATING,
-      backgroundColor: Colors.blue[100]!,
     );
   }
 
-  /// you can use this to close current snackbar or notif
-  static void closeSnackBarOrNotif() {
+  static void snackBarCustom(
+    BuildContext context,
+    String message, {
+    Color? color,
+    Duration? duration,
+  }) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(message),
+        backgroundColor: color,
+        duration: duration ?? const Duration(seconds: 4),
+      ),
+    );
+  }
+
+  /// you can use this function to clear snackbar
+  static void closeSnackBar(BuildContext context) {
+    ScaffoldMessenger.of(context).clearSnackBars();
+  }
+
+  // Note: With GetX (GetMaterialApp)
+  // ---------------------------------------------------------------------------
+
+  /// you can use this to close current notif
+  static void closeNotif() {
     _getx.Get.closeAllSnackbars();
   }
 

@@ -1,3 +1,9 @@
+## 0.2.0
+
+Update migration some function to non GetX 
+- update doc
+- change type dialog function to without GetX
+
 ## 0.1.0
 
 add default snackbar come from base Flutter without GetMaterialApp (GetX)
