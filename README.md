@@ -46,16 +46,6 @@ DInfo.notifError('Upload', "Fail upload image");
 <hr>
 <h2>Without GetX (MaterialApp)</h2>
 
-<h3>Dialog</h3>
-
-```dart
-DInfo.dialogSuccess('Payment Success');
-
-DInfo.closeDialog(durationBeforeClose: const Duration(seconds: 1));
-```
-<hr>
-
-
 <h3>SnackBar</h3>
 
 ```dart
