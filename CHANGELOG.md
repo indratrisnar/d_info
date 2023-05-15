@@ -1,6 +1,12 @@
+## 0.2.1
+
+- add simpleDialog and custom
+- update toast for support web
+
 ## 0.2.0
 
-Update migration some function to non GetX 
+Update migration some function to non GetX
+
 - update doc
 - change type dialog function to without GetX
 
