@@ -3,6 +3,7 @@ library d_info;
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart' as _toast;
 import 'package:get/get.dart' as _getx;
+import 'package:google_fonts/google_fonts.dart';
 
 class DInfo {
   // Simple & default snackbar
@@ -130,6 +131,100 @@ class DInfo {
       () {
         Navigator.pop(context);
         if (actionAfterClose != null) actionAfterClose.call();
+      },
+    );
+  }
+
+  /// for simple information, but with button close
+  static simpleDialog(
+    BuildContext context,
+    String message, [
+    String closeText = 'Close',
+  ]) {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) {
+        return SimpleDialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+          contentPadding: const EdgeInsets.fromLTRB(20, 30, 20, 20),
+          children: [
+            Icon(
+              Icons.info_outline,
+              color: Theme.of(context).primaryColor,
+              size: 40,
+            ),
+            const SizedBox(height: 20),
+            Text(
+              message,
+              textAlign: TextAlign.center,
+              style: GoogleFonts.poppins(
+                fontSize: 16,
+                color: Colors.grey[700],
+              ),
+            ),
+            const SizedBox(height: 16),
+            SizedBox(
+              height: 40,
+              child: OutlinedButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text(closeText),
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  /// like [simpleDialog] but more customization
+  static customDialog({
+    required BuildContext context,
+    required Widget content,
+    Widget? icon,
+    Widget? layer2,
+    String closeText = 'Close',
+  }) {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) {
+        return SimpleDialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+          contentPadding: const EdgeInsets.all(20),
+          children: [
+            Stack(
+              children: [
+                Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(top: 10, bottom: 20),
+                      child: icon,
+                    ),
+                    content,
+                    const SizedBox(height: 16),
+                    SizedBox(
+                      height: 40,
+                      child: OutlinedButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        child: Text(closeText),
+                      ),
+                    ),
+                  ],
+                ),
+                layer2 ?? const SizedBox(),
+              ],
+            ),
+          ],
+        );
       },
     );
   }
