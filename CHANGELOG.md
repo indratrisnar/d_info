@@ -1,6 +1,7 @@
 ## 0.2.2
 
 - add text Style property to dialog
+- environment sdk ">=2.15.1 <4.0.0"
 
 ## 0.2.1
 
