@@ -1,8 +1,8 @@
 library d_info;
 
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart' as _toast;
-import 'package:get/get.dart' as _getx;
+import 'package:fluttertoast/fluttertoast.dart' as toast;
+import 'package:get/get.dart' as getx;
 import 'package:google_fonts/google_fonts.dart';
 
 class DInfo {
@@ -19,14 +19,16 @@ class DInfo {
     String content, {
     String textNo = 'No',
     String textYes = 'Yes',
+    TextStyle? titleStyle,
+    TextStyle? contentStyle,
   }) async {
     return await showDialog(
       context: context,
       barrierDismissible: false,
       builder: (context) {
         return AlertDialog(
-          title: Text(title),
-          content: Text(content),
+          title: Text(title, style: titleStyle),
+          content: Text(content, style: contentStyle),
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(context, false),
@@ -42,7 +44,11 @@ class DInfo {
     );
   }
 
-  static void dialogError(BuildContext context, String message) {
+  static void dialogError(
+    BuildContext context,
+    String message, {
+    TextStyle? messageStyle,
+  }) {
     showDialog(
       context: context,
       barrierDismissible: false,
@@ -60,6 +66,7 @@ class DInfo {
             Text(
               message,
               textAlign: TextAlign.center,
+              style: messageStyle,
             ),
           ],
         );
@@ -69,7 +76,11 @@ class DInfo {
 
   /// dialog for response success
   /// not automatically closed, so you have to use DInfo.close() after this
-  static void dialogSuccess(BuildContext context, String message) {
+  static void dialogSuccess(
+    BuildContext context,
+    String message, {
+    TextStyle? messageStyle,
+  }) {
     showDialog(
       context: context,
       barrierDismissible: false,
@@ -87,6 +98,7 @@ class DInfo {
             Text(
               message,
               textAlign: TextAlign.center,
+              style: messageStyle,
             ),
           ],
         );
@@ -96,8 +108,12 @@ class DInfo {
 
   /// dialog for response custom icon
   /// not automatically closed, so you have to use DInfo.close() after this
-  static void dialogNetral(BuildContext context, String message,
-      {IconData? icon}) {
+  static void dialogNetral(
+    BuildContext context,
+    String message, {
+    IconData? icon,
+    TextStyle? messageStyle,
+  }) {
     showDialog(
       context: context,
       barrierDismissible: false,
@@ -116,6 +132,7 @@ class DInfo {
             Text(
               message,
               textAlign: TextAlign.center,
+              style: messageStyle,
             ),
           ],
         );
@@ -138,9 +155,10 @@ class DInfo {
   /// for simple information, but with button close
   static simpleDialog(
     BuildContext context,
-    String message, [
+    String message, {
     String closeText = 'Close',
-  ]) {
+    TextStyle? messageStyle,
+  }) {
     showDialog(
       context: context,
       barrierDismissible: false,
@@ -160,10 +178,11 @@ class DInfo {
             Text(
               message,
               textAlign: TextAlign.center,
-              style: GoogleFonts.poppins(
-                fontSize: 16,
-                color: Colors.grey[700],
-              ),
+              style: messageStyle ??
+                  GoogleFonts.poppins(
+                    fontSize: 16,
+                    color: Colors.grey[700],
+                  ),
             ),
             const SizedBox(height: 16),
             SizedBox(
@@ -231,11 +250,10 @@ class DInfo {
 
   /// fast response for error with automatically close
   static void toastError(String message, {bool isLong = false}) {
-    _toast.Fluttertoast.showToast(
+    toast.Fluttertoast.showToast(
       msg: message,
-      toastLength:
-          isLong ? _toast.Toast.LENGTH_LONG : _toast.Toast.LENGTH_SHORT,
-      gravity: _toast.ToastGravity.CENTER,
+      toastLength: isLong ? toast.Toast.LENGTH_LONG : toast.Toast.LENGTH_SHORT,
+      gravity: toast.ToastGravity.CENTER,
       timeInSecForIosWeb: 1,
       backgroundColor: Colors.red[100],
       textColor: Colors.red[900],
@@ -245,11 +263,10 @@ class DInfo {
 
   /// fast response for success with automatically close
   static void toastSuccess(String message, {bool isLong = false}) {
-    _toast.Fluttertoast.showToast(
+    toast.Fluttertoast.showToast(
       msg: message,
-      toastLength:
-          isLong ? _toast.Toast.LENGTH_LONG : _toast.Toast.LENGTH_SHORT,
-      gravity: _toast.ToastGravity.CENTER,
+      toastLength: isLong ? toast.Toast.LENGTH_LONG : toast.Toast.LENGTH_SHORT,
+      gravity: toast.ToastGravity.CENTER,
       timeInSecForIosWeb: 1,
       backgroundColor: Colors.green[100],
       textColor: Colors.green[900],
@@ -259,11 +276,10 @@ class DInfo {
 
   /// fast response for netral with automatically close
   static void toastNetral(String message, {bool isLong = false}) {
-    _toast.Fluttertoast.showToast(
+    toast.Fluttertoast.showToast(
       msg: message,
-      toastLength:
-          isLong ? _toast.Toast.LENGTH_LONG : _toast.Toast.LENGTH_SHORT,
-      gravity: _toast.ToastGravity.CENTER,
+      toastLength: isLong ? toast.Toast.LENGTH_LONG : toast.Toast.LENGTH_SHORT,
+      gravity: toast.ToastGravity.CENTER,
       timeInSecForIosWeb: 1,
       backgroundColor: Colors.blue[100],
       textColor: Colors.blue[900],
@@ -273,7 +289,7 @@ class DInfo {
 
   /// close current active toast
   static void closeToast() {
-    _toast.Fluttertoast.cancel();
+    toast.Fluttertoast.cancel();
   }
 
   /// response below of ui for error with automatically close
@@ -343,7 +359,7 @@ class DInfo {
 
   /// you can use this to close current notif
   static void closeNotif() {
-    _getx.Get.closeAllSnackbars();
+    getx.Get.closeAllSnackbars();
   }
 
   /// response like notif for error
@@ -354,7 +370,7 @@ class DInfo {
     double radius = 12,
     bool showBorder = false,
   }) {
-    _getx.Get.snackbar(
+    getx.Get.snackbar(
       title,
       message,
       backgroundColor: Colors.red[100],
@@ -374,7 +390,7 @@ class DInfo {
     double radius = 12,
     bool showBorder = false,
   }) {
-    _getx.Get.snackbar(
+    getx.Get.snackbar(
       title,
       message,
       backgroundColor: Colors.green[100],
@@ -394,7 +410,7 @@ class DInfo {
     double radius = 12,
     bool showBorder = false,
   }) {
-    _getx.Get.snackbar(
+    getx.Get.snackbar(
       title,
       message,
       backgroundColor: Colors.blue[100],

@@ -1,3 +1,7 @@
+## 0.2.2
+
+- add text Style property to dialog
+
 ## 0.2.1
 
 - add simpleDialog and custom
